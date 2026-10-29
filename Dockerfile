@@ -1,4 +1,4 @@
-FROM node:lts as build
+FROM node:22 as build
 
 ENV NODE_ENV=production \
     DAEMON=false \
@@ -36,7 +36,7 @@ RUN npm install --omit=dev \
     # TODO: generate lockfiles for each package manager
     ## pnpm import \
 
-FROM node:lts-slim AS final
+FROM node:22-slim AS final
 
 ENV NODE_ENV=production \
     DAEMON=false \
